@@ -13,7 +13,7 @@ module.exports = {
         /*.setImage("https://cdn.discordapp.com/attachments/705540588346278029/711938831191900180/fghjkl.png")*/
         .setTitle('About the bot')
         .addField('Version:', '0.0.1', true)
-        .addField('Developer:', 'Lerbiq#0240', true)
+        .addField('Developer:', 'Lerbiq#0420', true)
         .addField('Changelog:', `+ Added some basic commands. Check them with -help 
         \n! If -status doesnt return anything that means server if probably offline or not accessible.`)
         .setFooter('Prefix: `-` | This bot is still under construction');
