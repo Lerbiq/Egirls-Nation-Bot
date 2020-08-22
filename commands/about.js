@@ -12,10 +12,9 @@ module.exports = {
         .setAuthor('Lerbiq', 'https://cdn.discordapp.com/attachments/705540588346278029/711938831191900180/fghjkl.png')
         /*.setImage("https://cdn.discordapp.com/attachments/705540588346278029/711938831191900180/fghjkl.png")*/
         .setTitle('About the bot')
-        .addField('Version:', '0.0.2', true)
+        .addField('Version:', '0.0.3', true)
         .addField('Developer:', 'Lerbiq#0420', true)
-        .addField('Changelog:', `+ Added some basic commands. Check them with -help 
-        \n+ Fixed status command not returning anything if the server is down.`)
+        .addField('Changelog:', `+ Added auto react to messages in #polls`)
         .setFooter('Prefix: `-` | This bot is still under construction');
         message.channel.send(embed);
     }

@@ -47,6 +47,9 @@ client.on('message', message =>{
     if(message.content.startsWith("👀")){
         client.commands.get('eyes').execute(message, args);
     }
+    if(message.channel.id === '719867374769274951'){
+        client.commands.get('poll').execute(message, args);
+    }
 });
 
 client.login(process.env.token);
