@@ -7,15 +7,18 @@ module.exports = {
 
         const embed = new MessageEmbed()
         .setColor(0xFF0092)
-        /*.setURL('https://discord.egirlsnation.ga/')*/
+        .setURL('https://egirlsnation.ga/')
         .setTimestamp()
         .setAuthor('Lerbiq', 'https://cdn.discordapp.com/attachments/705540588346278029/711938831191900180/fghjkl.png')
         /*.setImage("https://cdn.discordapp.com/attachments/705540588346278029/711938831191900180/fghjkl.png")*/
         .setTitle('About the bot')
-        .addField('Version:', '0.0.3', true)
+        .addField('Version:', '0.1.0', true)
         .addField('Developer:', 'Lerbiq#0420', true)
-        .addField('Changelog:', `+ Added auto react to messages in #polls`)
-        .setFooter('Prefix: `-` | This bot is still under construction');
+        .addField('Changelog:', `! First stable release yay
+        \n+ Added urban disctionary command
+        \n + Added !ip command for when someone asks for ip
+        \n + Added website to some of the embeds`)
+        .setFooter('Prefix: `-`');
         message.channel.send(embed);
     }
 }

@@ -15,7 +15,9 @@ module.exports = {
         .addField('-status', 'Gives you information about the anarchy server.')
         .addField('-coinflip', 'Flips a coin. Self explanatory.')
         .addField('<question> Yes or no?', 'Gives you an aswer.')
-        .setFooter('Prefix: `-` | This bot is still under construction');
+        .addField('-ud <search | random> <term>', 'Gives you the deffinition of the term from Urban Dictionary.')
+        .addField('-ip', 'Gives you the ip. (Usefull when new people ask for it)')
+        .setFooter('Prefix: `-`');
         message.channel.send(embed);
     }
 }

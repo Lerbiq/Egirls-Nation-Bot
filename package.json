@@ -1,6 +1,6 @@
 {
   "name": "egirls-nation-bot",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Discord bot for Egirls Nation discord server",
   "main": "main.js",
   "scripts": {
@@ -10,7 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^12.3.1",
-    "minecraft-server-util": "^1.4.2"
+    "minecraft-server-util": "^1.4.2",
+    "urban": "^0.3.2"
   },
   "engines": {
     "node": "14.x"

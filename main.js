@@ -39,16 +39,25 @@ client.on('message', message =>{
                 client.commands.get('about').execute(message, args);
             }
         }
+        if(command == 'ip'){
+            client.commands.get('address').execute(message, args);
+        }else if(command == 'ud'){
+            client.commands.get('urban').execute(message, args);
+        }
     }
 
     if(message.content.toLowerCase().endsWith('yes or no?') || message.content.toLowerCase().endsWith('yesorno?')){
         client.commands.get('yesorno').execute(message, args);
+    }else if(message.content.toLowerCase().includes('nogger')){
+        client.commands.get('nogger').execute(message, args);
     }
     if(message.content.startsWith("👀")){
         client.commands.get('eyes').execute(message, args);
     }
     if(message.channel.id === '719867374769274951'){
         client.commands.get('poll').execute(message, args);
+    }else if(message.channel.id === '720441896102527086'){
+        client.commands.get('bruh').execute(message,args);
     }
 });
 

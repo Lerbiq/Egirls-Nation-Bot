@@ -19,7 +19,7 @@ module.exports = {
                     .addField('Server version', '-', true)
                     .addField('Online players', '-')
                     .addField('Players', 'No players online')
-                    .setFooter("Prefix: `-` | This bot is still under construction")
+                    .setFooter("Prefix: `-`")
                     .setThumbnail("https://cdn.discordapp.com/attachments/705540588346278029/711938831191900180/fghjkl.png")
                     .setColor(0xFF0092)
                     .setTimestamp();
@@ -48,7 +48,7 @@ module.exports = {
                     .addField('Server version', response.version, true)
                     .addField('Online players', response.onlinePlayers + ' / ' + response.maxPlayers)
                     .addField('Players', playersString)
-                    .setFooter("Prefix: `-` | This bot is still under construction")
+                    .setFooter("Prefix: `-`")
                     .setThumbnail("https://cdn.discordapp.com/attachments/705540588346278029/711938831191900180/fghjkl.png")
                     .setColor(0xFF0092)
                     .setTimestamp();
