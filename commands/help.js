@@ -17,6 +17,7 @@ module.exports = {
         .addField('<question> Yes or no?', 'Gives you an aswer.')
         .addField('-ud <search | random> <term>', 'Gives you the deffinition of the term from Urban Dictionary.')
         .addField('-ip', 'Gives you the ip. (Usefull when new people ask for it)')
+        .addField('-players', 'Gives you the count of registered players on the anarchy server.')
         .setFooter('Prefix: `-`');
         message.channel.send(embed);
     }
