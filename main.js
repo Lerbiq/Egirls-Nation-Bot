@@ -1,10 +1,13 @@
+const dotenv = require('dotenv');
+dotenv.config();
 const Discord = require('discord.js');
 const usedCommandRecently = new Set();
-
+const blacklist = require("./blacklist.json");
 const client = new Discord.Client();
-const prefix= '-';
+const prefix= process.env.prefix;
 
 const fs = require('fs');
+const { execute } = require('./commands/status');
 
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -37,6 +40,8 @@ client.on('message', message =>{
                 client.commands.get('help').execute(message, args);
             }else if(command === 'about'){
                 client.commands.get('about').execute(message, args);
+            }else if(command === 'players'){
+                client.commands.get('players').execute(message, args);
             }
         }
         if(command == 'ip'){
@@ -46,7 +51,7 @@ client.on('message', message =>{
         }
     }
 
-    if(message.content.toLowerCase().endsWith('yes or no?') || message.content.toLowerCase().endsWith('yesorno?')){
+    if(message.content.toLowerCase().endsWith('yes or no?') || message.content.toLowerCase().endsWith('yesorno?') || message.content.toLowerCase().endsWith('yes or no') || message.content.toLowerCase().endsWith('yesorno')){
         client.commands.get('yesorno').execute(message, args);
     }else if(message.content.toLowerCase().includes('nogger')){
         client.commands.get('nogger').execute(message, args);
@@ -59,6 +64,11 @@ client.on('message', message =>{
     }else if(message.channel.id === '720441896102527086'){
         client.commands.get('bruh').execute(message,args);
     }
+
+    if(blacklist.FILTER_LIST.some(word => message.content.toLowerCase().includes(word))){
+        message.delete();
+    }else if(message.content.toLowerCase() === 'cp')
+        message.delete();
 });
 
 client.login(process.env.token);
