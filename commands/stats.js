@@ -96,7 +96,9 @@ module.exports = {
                     minPing = minPing.match(/(\d[\d\.]*)/g);
                     maxPing = maxPing.match(/(\d[\d\.]*)/g);
                     var pom = skinName.match(/\"(.*?)\"/g);
-                    if(pom[1] != null){
+                    if (pom == null) {
+                        void(0);
+                    } else {
                         skinName = pom[1];
                         skinName = skinName.replace(/\"/g, '');
                     }
@@ -166,10 +168,9 @@ module.exports = {
                                 rankName = "Err: Couldn't get rank.";
                         }
 
-                        if(skinName == null){
-                            avatarURL = "https://minotar.net/avatar/" + playername +"/300";
-                            console.log(skinName);
-                        }else if(skinName != null){
+                        if (pom == null) {
+                            avatarURL = "https://minotar.net/avatar/" + playername + "/300";
+                        } else if (skinName != null) {
                             avatarURL = "https://minotar.net/avatar/" + skinName + "/300";
                         }
 
