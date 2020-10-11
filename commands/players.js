@@ -19,7 +19,7 @@ module.exports = {
         connection.connect(function (err) {
             if (err) throw err;
             console.log("Connected to the database, starting query.");
-            var sql = "select COUNT(*) from authme";
+            var sql = "SELECT count(id) FROM authme";
 
             connection.query(sql, function (err, result) {
                 if (err) throw err;
