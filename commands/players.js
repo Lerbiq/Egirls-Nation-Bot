@@ -2,7 +2,7 @@ const { MessageEmbed, Channel } = require("discord.js");
 
 module.exports = {
     name: 'players',
-    description: "Gives you the count of registered players",
+    description: "Gives you the count of registered players.",
     async execute(message, args) {
         var mysql = require('mysql');
         var regPlayerCount = 'null';
@@ -43,7 +43,7 @@ module.exports = {
                     .setColor(0xFF0092)
                     .setTitle(':eyes: Registered players')
                     .setDescription(`There is **` + regPlayerCount + `** registered players on Anarchy!`)
-                    .setFooter('Prefix: `-`');
+                    .setFooter(`Prefix: ' ${process.env.prefix} '`)
                 message.channel.send(embed);
             });
         });

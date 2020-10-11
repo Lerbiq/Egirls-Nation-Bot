@@ -10,7 +10,8 @@ module.exports = {
         .setColor(0xFF0092)
         .setTitle('Pong! :eyes:')
         .setDescription(`:ping_pong: Latency is ${Math.floor(msg.createdTimestamp- message.createdTimestamp)} ms \n\n:gear: API latency is **${Math.round(client.ws.ping)} ms**`)
-        .setFooter('Prefix: `-`');
+        .setFooter(`Prefix: ' ${process.env.prefix} '`)
+        .setTimestamp();
 
         message.channel.send(embed);
     }

@@ -1,5 +1,15 @@
 const { MessageEmbed } = require("discord.js");
-const ping = require("./ping");
+const ping = require("./ping.js");
+const about = require("./about.js");
+const address = require("./address.js");
+const bonk = require("./bonk.js");
+const coinflip = require("./coinflip.js");
+const link = require("./link.js");
+const players = require("./players.js");
+const stats = require("./stats.js");
+const status = require("./status.js");
+const urban = require("./urban.js");
+const yesorno = require("./yesorno.js");
 
 module.exports = {
     name: 'help',
@@ -10,15 +20,18 @@ module.exports = {
         .setColor(0xFF0092)
         .setTitle('Commands')
         .addField('-help', this.description)
-        .addField('-about', 'Returns some info about the bot in nice embed.')
-        .addField('-ping', 'Returns bot and API latency in milliseconds.')
-        .addField('-status', 'Gives you information about the anarchy server.')
-        .addField('-coinflip', 'Flips a coin. Self explanatory.')
-        .addField('<question> Yes or no?', 'Gives you an aswer.')
-        .addField('-ud <search | random> <term>', 'Gives you the deffinition of the term from Urban Dictionary.')
-        .addField('-ip', 'Gives you the ip. (Usefull when new people ask for it)')
-        .addField('-players', 'Gives you the count of registered players on the anarchy server.')
-        .setFooter('Prefix: `-`');
+        .addField('-about', about.description)
+        .addField('-ping', ping.description)
+        .addField('-status', status.description)
+        .addField('-coinflip', coinflip.description)
+        .addField('<question> Yes or no?', yesorno.description)
+        .addField('-ud <search | random> <term>', urban.description)
+        .addField('-ip', address.description)
+        .addField('-players', players.description)
+        .addField('-stats <playername>',stats.description)
+        .addField('-link', link.description)
+        .addField('-bonk', bonk.description)
+        .setFooter(`Prefix: ' ${process.env.prefix} '`)
         message.channel.send(embed);
     }
 }

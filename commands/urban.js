@@ -5,7 +5,7 @@ const { cyan } = require("../colours.json");
 
 module.exports = {
     name: 'urban',
-    description: "Gets urban dictionary deffinition",
+    description: "Gets urban dictionary deffinition for a term.",
     async execute(message, args){
         if(!args[0] || !["search", "random"].includes(args[0])) return message.channel.send("`-urban <search|random> (query)`");
         let image = "https://lh3.googleusercontent.com/unQjigibyJQvru9rcCOX7UCqyByuf5-h_tLpA-9fYH93uqrRAnZ0J2IummiejMMhi5Ch=s180-rw";
@@ -31,7 +31,7 @@ module.exports = {
                 })
             } catch(e) {
                 console.log(e)
-                return message.channel.send("looks like i've broken! Try again")
+                return message.channel.send("Something went wrong. Try again.")
             }
         }
     }
