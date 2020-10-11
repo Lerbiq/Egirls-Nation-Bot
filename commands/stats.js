@@ -96,8 +96,10 @@ module.exports = {
                     minPing = minPing.match(/(\d[\d\.]*)/g);
                     maxPing = maxPing.match(/(\d[\d\.]*)/g);
                     var pom = skinName.match(/\"(.*?)\"/g);
-                    skinName = pom[1];
-                    skinName = skinName.replace(/\"/g, '');
+                    if(pom[1] != null){
+                        skinName = pom[1];
+                        skinName = skinName.replace(/\"/g, '');
+                    }
 
                     if (deaths == null || mobKills == null || playTime == null) {
                         console.log(`[MySQL] Player ${playername} isn't in the database.`)
