@@ -30,12 +30,12 @@ module.exports = {
                 regPlayerCount = regPlayerCount.replace(/\}/g, '');
                 regPlayerCount = regPlayerCount.replace(/\'/g, '');
                 regPlayerCount = regPlayerCount.replace(/\[/g, '');
-                regPlayerCount = regPlayerCount.replace(/COUNT/g, '');
                 regPlayerCount = regPlayerCount.replace(/\(/g, '');
                 regPlayerCount = regPlayerCount.replace(/\)/g, '');
                 regPlayerCount = regPlayerCount.replace(/\*/g, '');
                 regPlayerCount = regPlayerCount.replace(/:/g, '');
                 regPlayerCount = regPlayerCount.replace(/\"/g, '');
+                regPlayerCount = regPlayerCount.replace(/countid/g, '');
                 console.log("Ending connection.");
                 connection.end();
                 console.log("Connection ended.");
