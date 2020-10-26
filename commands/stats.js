@@ -101,6 +101,7 @@ module.exports = {
                     } else {
                         skinName = pom[1];
                         skinName = skinName.replace(/\"/g, '');
+                        skinName = skinName.replace(/ /gm, '');
                     }
 
                     if (deaths == null || mobKills == null || playTime == null) {

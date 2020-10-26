@@ -82,5 +82,4 @@ client.on('message', message =>{
     }else if(message.content.toLowerCase() === 'cp')
         message.delete();
 });
-
 client.login(process.env.token);
