@@ -101,7 +101,6 @@ module.exports = {
                     } else {
                         skinName = pom[1];
                         skinName = skinName.replace(/\"/g, '');
-                        skinName = skinName.replace(/ /gm, '');
                     }
 
                     if (deaths == null || mobKills == null || playTime == null) {
@@ -171,9 +170,13 @@ module.exports = {
 
                         if (pom == null) {
                             avatarURL = "https://minotar.net/avatar/" + playername + "/300";
+                            avatarURL = avatarURL.replace(/ /gm, '');
                         } else if (skinName != null) {
                             avatarURL = "https://minotar.net/avatar/" + skinName + "/300";
+                            avatarURL = avatarURL.replace(/ /gm, '');
                         }
+                        
+                        console.log(avatarURL);
 
                         const Embed = new Discord.MessageEmbed()
                             .setTitle(`:chart_with_upwards_trend: Statistics for ${args}`)
