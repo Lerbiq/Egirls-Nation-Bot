@@ -60,11 +60,15 @@ client.on('message', message =>{
             client.commands.get('urban').execute(message, args);
         }else if(command === 'bonk'){
             client.commands.get('bonk').execute(message, args);
+        }else if(command === 'dupe'){
+            client.commands.get('dupe').execute(message, args);
         }
     }
 
     if(message.content.toLowerCase().endsWith('yes or no?') || message.content.toLowerCase().endsWith('yesorno?') || message.content.toLowerCase().endsWith('yes or no') || message.content.toLowerCase().endsWith('yesorno')){
-        client.commands.get('yesorno').execute(message, args);
+        if(message.content.toLowerCase() != "yes or no?" || message.content.toLowerCase != "yes or no"){
+         	client.commands.get('yesorno').execute(message, args);   
+        }
     }else if(message.content.toLowerCase().includes('nogger')){
         client.commands.get('nogger').execute(message, args);
     }

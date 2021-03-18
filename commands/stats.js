@@ -39,24 +39,25 @@ module.exports = {
                 multipleStatements: true,
             });
 
-            function msToTime(duration) {
-                var milliseconds = parseInt((duration % 1000) / 100),
-                    seconds = Math.floor((duration / 1000) % 60),
-                    minutes = Math.floor((duration / (1000 * 60)) % 60),
-                    hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+			function msToTime(milliseconds) {
+                var day, hour, minute, seconds;
+                seconds = Math.floor(milliseconds / 1000);
+                minute = Math.floor(seconds / 60);
+                seconds = seconds % 60;
+                hour = Math.floor(minute / 60);
+                minute = minute % 60;
+                day = Math.floor(hour / 24);
+                hour = hour % 24;
 
-                hours = (hours < 10) ? "0" + hours : hours;
-                minutes = (minutes < 10) ? "0" + minutes : minutes;
-                seconds = (seconds < 10) ? "0" + seconds : seconds;
-
-                return hours + " hours, " + minutes + " minutes, " + seconds + " seconds";
+                return day + " days, " + hour + " hours, " + minute + " minutes, " + seconds + " seconds";
             }
+
 
             console.log("[MySQL] Connecting to the database...")
             connection.connect(function (err) {
                 if (err) throw err;
                 console.log(`[MySQL] Connected to the database.\n[MySQL_Query] Starting query for player ${playername}.`);
-                var sql = `SELECT SUM(survival_time + creative_time + spectator_time) FROM ${process.env.dbName2}.plan_world_times WHERE uuid ='${uuid}';
+                var sql = `SELECT SUM(session_end-session_start) FROM ${process.env.dbName2}.plan_sessions WHERE uuid ='${uuid}';
                             SELECT SUM(mob_kills) FROM ${process.env.dbName2}.plan_sessions WHERE uuid = '${uuid}';
                             SELECT SUM(deaths) FROM ${process.env.dbName2}.plan_sessions WHERE uuid = '${uuid}';
                             SELECT COUNT(killer_uuid) FROM ${process.env.dbName2}.plan_kills WHERE killer_uuid = '${uuid}';
@@ -180,6 +181,7 @@ module.exports = {
 
                         const Embed = new Discord.MessageEmbed()
                             .setTitle(`:chart_with_upwards_trend: Statistics for ${args}`)
+                        	.setDescription(`:exclamation: Stats are collected since the 9th of October 2020`)
                             .addField(`:crown:  Rank`, `${rankName}`)
                             .addField(`:hourglass: Playtime`, `${convertedTime}`)
                             .addField(`:crossed_swords: Kills`, `${playerKills}`, true)
@@ -196,6 +198,7 @@ module.exports = {
                             .setTimestamp();
 
                         message.channel.send(Embed);
+                        
                     }
                 });
             });
